@@ -1,0 +1,49 @@
+
+.gambar-login{
+    animation: move-right 2s forwards;
+}
+.form-login{
+    animation: move-left 2s forwards;
+}
+@keyframes move-right {
+    from {
+        transform: translateX(-50%);
+    }
+    to {
+        transform: translateX(0); /* Sesuaikan posisi ke tengah */
+    }
+}
+@keyframes move-left {
+    from {
+        transform: translateX(50%);
+    }
+    to {
+        transform: translateX(0); /* Sesuaikan posisi ke tengah */
+    }
+}
+
+
+
+.password-container {
+    position: relative;
+}
+#tog {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+#terbuka {
+    display: none;
+}
+.form-control {
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+@media screen and (max-width:540px) {
+    .centerOnMobile {
+        text-align: center
+    }
+}
