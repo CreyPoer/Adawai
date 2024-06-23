@@ -14,7 +14,7 @@
 
     <div class="card mb-4 bg-info border-start border-black border-3">
         <div class="card-body">
-            <form action="{{  route('update.employee', $data->id) }}" method="POST" enctype="multipart/form-data">
+            <form name="pegawaiForm" action="{{  route('update.employee', $data->id) }}" method="POST" enctype="multipart/form-data">
                 @csrf
                 @method('PUT')
                 <div class="row mb-3 fw-bold">
@@ -22,17 +22,13 @@
                         <label for="InputName" class="form-label">Nama</label>
                         <input type="text" class="form-control" id="InputName" name="name"
                             placeholder="Nama Pegawai" value="{{ $data->name }}">
-                        @error('name')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            <div id="errorName" class="error"></div>
                     </div>
                     <div class="col-md-6">
                         <label for="InputNIP" class="form-label" title="Nomor Induk Pegawai">NIP</label>
                         <input type="text" class="form-control" id="InputNIP" name="nip"
                             placeholder="NIP Pegawai" value="{{ $data->nip }}">
-                        @error('nip')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            <div id="errorNIP" class="error"></div>
                     </div>
                 </div>
                 <div class="row mb-3 fw-bold">
@@ -40,17 +36,13 @@
                         <label for="InputNoTelepon" class="form-label">Nomor Telepon</label>
                         <input type="text" class="form-control" id="InputNoTelepon" name="no_telepon"
                             placeholder="Nomor Telepon Pegawai" value="{{ $data->no_telepon }}">
-                        @error('no_telepon')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            <div id="errorNo_Telepon" class="error"></div>
                     </div>
                     <div class="col-md-6">
                         <label for="InputEmail" class="form-label">Email</label>
                         <input type="text" class="form-control" id="InputEmail" name="email"
                             placeholder="Email Pegawai" value="{{ $data->email }}">
-                        @error('email')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            <div id="errorEmail" class="error"></div>
                     </div>
                 </div>
                 <div class="row mb-3 fw-bold">
@@ -62,9 +54,7 @@
                             <input type="radio" class="btn-check" name="gender" id="btnradio2" value="Female" autocomplete="off" {{ $data->gender == 'Female' ? 'checked' : '' }}>
                             <label class="btn btn-outline-danger fw-bold" for="btnradio2">Perempuan</label>
                         </div><br>
-                        @error('gender')
-                        <span class="text-danger">{{ $message }}</span>
-                    @enderror
+                        <div id="errorGender" class="error"></div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputDivisi" class="form-label">Divisi</label>
@@ -76,9 +66,7 @@
                             </option>
                             @endforeach
                           </select>
-                        @error('divisi_id')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                          <div id="errorDivisi_Id" class="error"></div>
                     </div>
                 </div>
                 <div class="row mb-3 fw-bold">
@@ -91,9 +79,7 @@
                                 <option {{ $data->marital_status == 'Duda' ? 'selected' : '' }} value="Duda">Duda</option>
                                 <option {{ $data->marital_status == 'Janda' ? 'selected' : '' }} value="Janda">Janda</option>
                           </select>
-                        @error('marital_status')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                          <div id="errorMarital_Status" class="error"></div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputPendidikan" class="form-label">Pendidikan Terakhir</label>
@@ -105,9 +91,7 @@
                                 <option {{ $data->education == 'S2' ? 'selected' : '' }} value="S2">S2</option>
                                 <option {{ $data->education == 'S3' ? 'selected' : '' }} value="S3">S3</option>
                           </select>
-                        @error('education')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                          <div id="errorEducation" class="error"></div>
                     </div>
                 </div>
                 <div class="row mb-3 fw-bold">
@@ -115,9 +99,7 @@
                         <label for="InputSallary" class="form-label">Gaji</label>
                         <input type="number" class="form-control" id="InputSallary" name="sallary"
                             placeholder="Gaji Pegawai" value="{{ $data->sallary }}">
-                        @error('sallary')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                            <div id="errorSallary" class="error"></div>
                     </div>
                     <div class="col-md-6">
                         <label for="inputFoto" class="form-label">Foto <small>silahkan upload foto jika ingin merubah foto Pegawai {{ $data->name }}</small></label><br>
@@ -125,18 +107,14 @@
                             <input type="file" class="form-control" name="foto" id="inputFoto">
                             <label class="input-group-text" for="inputGroupFile02">Upload</label>
                         </div>
-                        @error('foto')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <div id="errorFoto" class="error"></div>
                     </div>
                 </div>
                 <div class="row mb-3 fw-bold">
                     <div class="col-md-12 mb-3">
                         <label for="inputAddress" class="form-label">Alamat</label>
                         <textarea class="form-control" name="alamat" id="inputAddress" rows="3">{{ $data->alamat }}</textarea>
-                        @error('alamat')
-                            <span class="text-danger">{{ $message }}</span>
-                        @enderror
+                        <div id="errorAlamat" class="error"></div>
                     </div>
                 </div>
                 <div class="row mb-3 fw-bold d-flex">
@@ -154,5 +132,9 @@
             </form>
         </div>
     </div>
+
+    @push('scripts')
+    <script src="{{ asset('js/admin/validasi_form/pegawai/edit.js') }}"></script>
+@endpush
 
 @endsection

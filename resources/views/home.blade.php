@@ -161,80 +161,13 @@
     </div>
 </div>
 
-
+@push('scripts')
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script src="https://code.highcharts.com/highcharts.js"></script>
 <script src="https://code.highcharts.com/modules/exporting.js"></script>
 <script src="https://code.highcharts.com/modules/export-data.js"></script>
-<script>
-    $(document).ready(function() {
-        getData();
-
-        function getData() {
-            $.ajax({
-                type: 'POST',
-                url: `{{ route('grafik.get-data') }}`,
-                data: {
-                    _token: `{{ csrf_token() }}`,
-                },
-                dataType: 'json',
-                success: function(response) {
-                    drawDivisionChart(response.data.division);
-                    drawMaritalStatusChart(response.data.marital_status);
-                },
-                error: function(xhr, textstatus, message) {
-                    console.log(xhr.responseJSON);
-                },
-            });
-        }
-
-        function drawDivisionChart(data) {
-            Highcharts.chart('container-division', {
-                chart: {
-                    type: 'column'
-                },
-                title: {
-                    text: 'Jumlah Pegawai per Divisi'
-                },
-                xAxis: {
-                    categories: data.map(item => item.division),
-                    crosshair: true
-                },
-                yAxis: {
-                    min: 0,
-                    title: {
-                        text: 'Jumlah Pegawai'
-                    }
-                },
-                series: [{
-                    name: 'Total Pegawai',
-                    data: data.map(item => item.total_employees),
-                    color: 'cyan'
-                }]
-            });
-        }
-
-        function drawMaritalStatusChart(data) {
-            Highcharts.chart('container-marital-status', {
-                chart: {
-                    type: 'pie'
-                },
-                title: {
-                    text: 'Jumlah Pegawai per Marital Status'
-                },
-                tooltip: {
-                    pointFormat: '{series.name}: <b>{point.y}</b>'
-                },
-                series: [{
-                    name: 'Total Pegawai',
-                    colorByPoint: true,
-                    data: data.map(item => ({
-                        name: item.status,
-                        y: item.total_employees
-                    }))
-                }]
-            });
-        }
-    });
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
+<script src="{{ asset('js/grafik/guest/script.js') }}">
 </script>
+@endpush
 @endsection

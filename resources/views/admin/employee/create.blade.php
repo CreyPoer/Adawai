@@ -1,13 +1,5 @@
 @extends('layout.admin.main')
 @section('title', 'ADAWAI | Pegawai')
-@push('styles')
-<style>
-    .error {
-        color: rgb(202, 4, 4);
-        font-size: 0.9em;
-    }
-</style>
-@endpush
 @section('konten-admin')
     <div class="row d-flex justify-content-left">
         <ol class="breadcrumb bg-transparent">

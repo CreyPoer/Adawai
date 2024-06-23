@@ -4,6 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>ADAWAI App</title>
     <script src="{{ asset('vendor/fontawesome/css/all.css') }}"></script>
     <script src="{{ asset('vendor/fontawesome/js/all.js') }}"></script>
@@ -28,8 +29,6 @@
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
     </script>
-    {{-- <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> --}}
-    {{-- <script src="https://code.highcharts.com/highcharts.js"></script> --}}
     @stack('scripts')
     <script src="{{ asset('js/guest/app.js') }}" crossorigin="anonymous"></script>
     <script src="{{ asset('js/guest/navbar.js') }}" crossorigin="anonymous"></script>

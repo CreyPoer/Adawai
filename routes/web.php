@@ -18,10 +18,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-Route::get('/test',[EmployeeController::class,'home'])->name('home');
+
+Route::get('/',[EmployeeController::class,'home'])->name('home');
 
 Route::group(['prefix' => 'grafik', 'as' => 'grafik.'], function () {
     Route::post('/get-data', [GrafikController::class, 'getData'])->name('get-data');

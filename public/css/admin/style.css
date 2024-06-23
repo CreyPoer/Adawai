@@ -1,3 +1,7 @@
 .tombol-form:hover{
     box-shadow:3px 3px black;
 }
+.error {
+    color: rgb(255, 8, 8);
+    font-size: 0.9em;
+}

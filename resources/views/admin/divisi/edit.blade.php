@@ -1,13 +1,5 @@
 @extends('layout.admin.main')
 @section('title', 'ADAWAI | Divisi')
-@push('styles')
-<style>
-    .error {
-        color: red;
-        font-size: 0.9em;
-    }
-</style>
-@endpush
 @section('konten-admin')
     <div class="row d-flex justify-content-left">
         <ol class="breadcrumb bg-transparent">
@@ -57,7 +49,7 @@
     </div>
 
     @push('scripts')
-    <script src="{{ asset('js/admin/validasi_form/divisi/tambah.js') }}">
+    <script src="{{ asset('js/admin/validasi_form/divisi/script.js') }}">
     </script>
     @endpush
 
