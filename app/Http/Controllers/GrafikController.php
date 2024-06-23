@@ -30,7 +30,7 @@ class GrafikController extends Controller
 
         $data = $divisions->map(function ($divisi) {
             return [
-                'division' => $divisi->divisi, // pastikan kolom nama divisi
+                'division' => $divisi->divisi, 
                 'total_employees' => $divisi->employees_count,
             ];
         });
@@ -39,7 +39,10 @@ class GrafikController extends Controller
     }
 
     public function getGrafikMaritalStatus() {
-        $maritalStatuses = Employee::$maritalStatus;
+        $maritalStatuses = Employee::select('marital_status')
+        ->distinct()
+        ->pluck('marital_status')
+        ->toArray();
         $data = [];
 
         foreach ($maritalStatuses as $status) {

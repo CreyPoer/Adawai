@@ -23,25 +23,21 @@ $(document).ready(function() {
     function drawDivisionChart(data) {
         Highcharts.chart('container-division', {
             chart: {
-                type: 'column'
+                type: 'pie'
             },
             title: {
-                text: 'Jumlah Pegawai per Divisi'
+                text: 'Jumlah Pegawai Setiap Divisi'
             },
-            xAxis: {
-                categories: data.map(item => item.division),
-                crosshair: true
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Jumlah Pegawai'
-                }
+            tooltip: {
+                pointFormat: '{series.name}: <b>{point.y}</b>'
             },
             series: [{
                 name: 'Total Pegawai',
-                data: data.map(item => item.total_employees),
-                color: 'cyan'
+                colorByPoint: true,
+                data: data.map(item => ({
+                    name: item.division,
+                    y: item.total_employees
+                }))
             }],
             accessibility: {
                 enabled: false
@@ -55,7 +51,7 @@ $(document).ready(function() {
                 type: 'pie'
             },
             title: {
-                text: 'Jumlah Pegawai per Marital Status'
+                text: 'Jumlah Pegawai Berdasarkan Status Pernikahan'
             },
             tooltip: {
                 pointFormat: '{series.name}: <b>{point.y}</b>'

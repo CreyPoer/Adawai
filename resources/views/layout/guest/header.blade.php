@@ -26,7 +26,7 @@
             <ul class="navbar-nav ms-auto ">
                 <li class="nav-item">
                     <div class="dropdown-center">
-                        <a class="nav-link mx-2 text-uppercase" href="/login"><i class="fa-solid fa-door-open me-1 fa-sm"></i>
+                        <a class="nav-link mx-2 text-uppercase" href="{{ route('login') }}"><i class="fa-solid fa-door-open me-1 fa-sm"></i>
                             <strong class="log">LOGIN</strong></a>
                     </div>
                 </li>
