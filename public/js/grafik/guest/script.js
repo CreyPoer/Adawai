@@ -36,7 +36,7 @@ $(document).ready(function() {
                 colorByPoint: true,
                 data: data.map(item => ({
                     name: item.division,
-                    y: item.total_employees
+                    y: parseFloat(item.total_employees)
                 }))
             }],
             accessibility: {
@@ -61,7 +61,7 @@ $(document).ready(function() {
                 colorByPoint: true,
                 data: data.map(item => ({
                     name: item.status,
-                    y: item.total_employees
+                    y: parseFloat(item.total_employees)
                 }))
             }],
             accessibility: {

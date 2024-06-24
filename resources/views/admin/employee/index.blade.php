@@ -20,6 +20,7 @@
                 <span class="text">Tambah Data Pegawai</span>
             </a>
     </div>
+    
     @if (session()->has('suksestambahemployee'))
         <div class="alert alert-success alert-dismissible" role="alert">
             {{ session('suksestambahemployee') }}

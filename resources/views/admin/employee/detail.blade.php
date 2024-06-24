@@ -1,5 +1,5 @@
 @extends('layout.admin.main')
-@section('title', 'ADAWAI | Divisi')
+@section('title', 'ADAWAI | Pegawai')
 @section('konten-admin')
     <div class="row d-flex justify-content-left">
         <ol class="breadcrumb bg-transparent">

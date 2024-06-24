@@ -12,7 +12,7 @@ class GrafikController extends Controller
     public function getData(Request $request)
     {
         $grafikDivision = $this->getGrafikDivision();
-        $grafikMaritalStatus = $this->getGrafikMaritalStatus(); // pastikan ini juga ada
+        $grafikMaritalStatus = $this->getGrafikMaritalStatus();
 
         return response()->json([
             'success' => true,
@@ -30,7 +30,7 @@ class GrafikController extends Controller
 
         $data = $divisions->map(function ($divisi) {
             return [
-                'division' => $divisi->divisi, 
+                'division' => $divisi->divisi,
                 'total_employees' => $divisi->employees_count,
             ];
         });
